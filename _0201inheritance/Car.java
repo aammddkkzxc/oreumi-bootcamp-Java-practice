@@ -1,6 +1,7 @@
 package _0201inheritance;
 
 public class Car extends Vehicle{
+    public int speed;
     public Car(String model, int speed, int wheels) {
         super(model, speed);
         this.wheels = wheels;

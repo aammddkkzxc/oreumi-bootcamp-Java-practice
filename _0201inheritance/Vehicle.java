@@ -13,4 +13,5 @@ public class Vehicle {
     public void print() {
         System.out.println("Parent:" + model + "," + speed + "," + stop + "," + wheels);
     }
+
 }
