@@ -13,10 +13,7 @@ public class Main {
 //        int totalPromotion = beauty.getDiscountAmount() + grocery.getDiscountAmount() + largeAppliance.getDiscountAmount();
 
         Cart cart = new Cart(new Product[] {beauty, grocery, largeAppliance});
-        int totalDeliveryCharge = 0;
-        for(Product product : cart.getProducts()) {
-            totalDeliveryCharge += cart.calculateDeliveryCharge(product);
-        }
+        int totalDeliveryCharge = cart.calculateTotalDeliveryCharge();
         System.out.println(totalDeliveryCharge);    // 결과: 9000
     }
 }

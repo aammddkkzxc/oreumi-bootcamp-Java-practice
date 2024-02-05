@@ -7,7 +7,17 @@ public class Cart {
         this.products = products;
     }
 
-    public int calculateDeliveryCharge(Product product) {
+    public int calculateTotalDeliveryCharge() {
+        int totalDeliveryCharge = 0;
+
+        for(Product product : products) {
+            totalDeliveryCharge += calculateDeliveryCharge(product);
+        }
+
+        return totalDeliveryCharge;
+    }
+
+    private int calculateDeliveryCharge(Product product) {
         int price = product.getPrice();
         int charge = calculateChargeWithWeight(product);
 
