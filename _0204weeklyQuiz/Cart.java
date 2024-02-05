@@ -8,7 +8,7 @@ public class Cart {
     }
 
     public int calculateDeliveryCharge() {
-        int price = calculateChargeWithTotalPrice();
+        int price = calculateTotalPriceWithPromotion();
         int charge = calculateChargeWithTotalWeight();
 
         if (price < 30000) {
@@ -35,7 +35,7 @@ public class Cart {
         return 10000;
     }
 
-    private int calculateChargeWithTotalPrice() {
+    private int calculateTotalPriceWithPromotion() {
         int finalPrice = 0;
 
         for(Product product : products) {
