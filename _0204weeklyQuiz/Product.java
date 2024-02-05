@@ -17,7 +17,7 @@ public abstract class Product implements DeliveryChargeCalculator {
         if (price < 30000) {
             return charge;
         }
-        if (price < 1000000) {
+        if (price < 100000) {
             return charge - 1000;
         }
         return 0;
