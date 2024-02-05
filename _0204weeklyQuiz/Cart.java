@@ -7,19 +7,9 @@ public class Cart {
         this.products = products;
     }
 
-    public int calculateTotalDeliveryCharge() {
-        int totalDeliveryCharge = 0;
-
-        for(Product product : products) {
-            totalDeliveryCharge += calculateDeliveryCharge(product);
-        }
-
-        return totalDeliveryCharge;
-    }
-
-    private int calculateDeliveryCharge(Product product) {
-        int price = product.getPrice();
-        int charge = calculateChargeWithWeight(product);
+    public int calculateDeliveryCharge() {
+        int price = calculateChargeWithTotalPrice();
+        int charge = calculateChargeWithTotalWeight();
 
         if (price < 30000) {
             return charge;
@@ -30,16 +20,30 @@ public class Cart {
         return 0;
     }
 
-    private int calculateChargeWithWeight(Product product) {
-        int weight = product.getWeight();
+    private int calculateChargeWithTotalWeight() {
+        int totalWeight = 0;
+        for(Product product : products) {
+            totalWeight += product.getWeight();
+        }
 
-        if (weight < 3) {
+        if (totalWeight < 3) {
             return 1000;
         }
-        if (weight < 10) {
+        if (totalWeight < 10) {
             return 5000;
         }
         return 10000;
+    }
+
+    private int calculateChargeWithTotalPrice() {
+        int finalPrice = 0;
+
+        for(Product product : products) {
+            finalPrice += product.getPrice();
+            finalPrice -= product.getDiscountAmount();
+        }
+
+        return finalPrice;
     }
 
     public Product[] getProducts() {
