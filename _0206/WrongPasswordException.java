@@ -1,6 +1,8 @@
 package _0206;
 
-public class WrongPasswordException extends Exception{
+import _0205.Run;
+
+public class WrongPasswordException extends RuntimeException{
     public WrongPasswordException() {
 
     }
