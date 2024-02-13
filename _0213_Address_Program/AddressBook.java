@@ -35,6 +35,12 @@ public class AddressBook {
         contacts.remove(contacts.size() - 1);
     }
 
+    public void checkAddressBookEmpty() {
+        if (contacts.size() == 0) {
+            throw new IllegalArgumentException("연락처가 비어있습니다.");
+        }
+    }
+
     public List<Contact> findContactsWithName(String name) {
         List<Contact> contactsWithName = new ArrayList<>();
 

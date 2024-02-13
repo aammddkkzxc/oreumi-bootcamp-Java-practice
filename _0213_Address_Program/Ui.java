@@ -78,11 +78,12 @@ public class Ui {
 
     public static void printAddress(AddressBook addressBook) {
         try {
+            addressBook.checkAddressBookEmpty();
             for (Contact contact : addressBook.getContacts()) {
                 printer(contact);
             }
-        } catch (NullPointerException e) {
-            System.out.println("연락처가 비어있습니다.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
 
