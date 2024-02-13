@@ -114,17 +114,15 @@ public class Ui {
 
     private static void printer(Contact contact) {
         StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("이름 : ").append(contact.getName()).append(", ").append("전화번호 : ")
+                .append(contact.getPhoneNumber()).append(", ");
 
         if (contact instanceof BusinessContact businessContact) {
-            stringBuilder.append("이름 : ").append(businessContact.getName()).append(", ").append("전화번호 : ")
-                    .append(businessContact.getPhoneNumber()).append(", ").append("회사명 : ")
-                    .append(businessContact.getCompany());
+            stringBuilder.append("회사명 : ").append(businessContact.getCompany());
             System.out.println(stringBuilder);
         }
         if (contact instanceof PersonalContact personalContact) {
-            stringBuilder.append("이름 : ").append(personalContact.getName()).append(", ").append("전화번호 : ")
-                    .append(personalContact.getPhoneNumber()).append(", ").append("관계 : ")
-                    .append(personalContact.getRelationship());
+            stringBuilder.append("관계 : ").append(personalContact.getRelationship());
             System.out.println(stringBuilder);
         }
     }
