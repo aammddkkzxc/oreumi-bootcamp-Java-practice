@@ -1,5 +1,6 @@
 package _0213_Address_Program;
 
+import java.util.List;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -19,8 +20,8 @@ public class Ui {
     private static final String FIND_REQUEST_MESSAGE = "검색할 이름을 입력하세요: ";
 
     public static Mode inputMode() {
-        try {
-            Mode chosenMode = chooseMode();
+        try (Scanner scanner = new Scanner(System.in)) {
+            Mode chosenMode = chooseMode(scanner);
             chosenMode.isNone(chosenMode);
 
             return chosenMode;
@@ -31,11 +32,10 @@ public class Ui {
         }
     }
 
-    public static Mode chooseMode() {
-        Scanner scanner = new Scanner(System.in);
+    public static Mode chooseMode(Scanner scanner) {
         System.out.print(MODE_REQUEST_MESSAGE);
-
         int modeNumber;
+
         try {
             modeNumber = Integer.parseInt(scanner.nextLine());
         } catch (NumberFormatException e) {
@@ -96,16 +96,10 @@ public class Ui {
         Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
-        boolean exist = false;
         try {
-            for (Contact contact : addressBook.getContacts()) {
-                if (Objects.equals(contact.getName(), name)) {
-                    printer(contact);
-                    exist = true;
-                }
-            }
-            if (!exist) {
-                System.out.println("연락처를 찾을 수 없습니다.");
+            List<Contact> contactsWithName = addressBook.findContactsWithName(name);
+            for(Contact contact : contactsWithName) {
+                printer(contact);
             }
         } catch (NullPointerException e) {
             System.out.println("연락처를 찾을 수 없습니다.");

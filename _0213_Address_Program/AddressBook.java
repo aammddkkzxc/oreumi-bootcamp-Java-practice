@@ -35,6 +35,18 @@ public class AddressBook {
         contacts.remove(contacts.size() - 1);
     }
 
+    public List<Contact> findContactsWithName(String name) {
+        List<Contact> contactsWithName = new ArrayList<>();
+
+        for (Contact contact : contacts) {
+            if (contact.isContactExist(name)) {
+                contactsWithName.add(contact);
+            }
+        }
+
+        return contactsWithName;
+    }
+
     public List<Contact> getContacts() {
         return Collections.unmodifiableList(contacts);
     }

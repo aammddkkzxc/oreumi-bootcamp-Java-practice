@@ -5,6 +5,7 @@ public class PersonalContact extends Contact{
 
     public PersonalContact(String name, String phoneNumber, String relationship) {
         super(name, phoneNumber);
+        //각종 유효성 검사 로직 구현
         this.relationship = relationship;
     }
 
