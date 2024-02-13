@@ -18,21 +18,20 @@ public class Ui {
     private static final String PERSONAL_REQUEST_MESSAGE = "관계를 입력하세요 : ";
     private static final String FIND_REQUEST_MESSAGE = "검색할 이름을 입력하세요: ";
 
-    public static Mode inputMode() {
+    public static Mode inputMode(Scanner scanner) {
         try  {
-            Mode chosenMode = chooseMode();
+            Mode chosenMode = chooseMode(scanner);
             chosenMode.isNone(chosenMode);
 
             return chosenMode;
         } catch (IllegalArgumentException e) {
             System.out.println("\n" + e.getMessage() + "\n");
 
-            return inputMode();
+            return inputMode(scanner);
         }
     }
 
-    public static Mode chooseMode() {
-        Scanner scanner = new Scanner(System.in);
+    public static Mode chooseMode(Scanner scanner) {
         System.out.print(MODE_REQUEST_MESSAGE);
         int modeNumber;
 
@@ -45,9 +44,7 @@ public class Ui {
         return Mode.decideMode(modeNumber);
     }
 
-    public static BusinessContact inputBusinessContact() {
-        Scanner scanner = new Scanner(System.in);
-
+    public static BusinessContact inputBusinessContact(Scanner scanner) {
         System.out.print(NAME_REQUEST_MESSAGE);
         String name = scanner.nextLine();
         System.out.print(ADDRESS_REQUEST_MESSAGE);
@@ -59,13 +56,11 @@ public class Ui {
             return new BusinessContact(name, phoneNumber, company);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return inputBusinessContact();
+            return inputBusinessContact(scanner);
         }
     }
 
-    public static PersonalContact inputPersonalContact() {
-        Scanner scanner = new Scanner(System.in);
-
+    public static PersonalContact inputPersonalContact(Scanner scanner) {
         System.out.print(NAME_REQUEST_MESSAGE);
         String name = scanner.nextLine();
         System.out.print(ADDRESS_REQUEST_MESSAGE);
@@ -77,7 +72,7 @@ public class Ui {
             return new PersonalContact(name, phoneNumber, company);
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
-            return inputPersonalContact();
+            return inputPersonalContact(scanner);
         }
     }
 
@@ -91,9 +86,8 @@ public class Ui {
         }
     }
 
-    public static void findContact(AddressBook addressBook) {
+    public static void findContact(AddressBook addressBook, Scanner scanner) {
         System.out.print(FIND_REQUEST_MESSAGE);
-        Scanner scanner = new Scanner(System.in);
         String name = scanner.nextLine();
 
         try {
