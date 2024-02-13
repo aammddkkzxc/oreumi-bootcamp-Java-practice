@@ -44,6 +44,10 @@ public class AddressBook {
             }
         }
 
+        if(contactsWithName.size() == 0) {
+            throw new IllegalArgumentException("연락처를 찾을 수 없습니다.");
+        }
+
         return contactsWithName;
     }
 

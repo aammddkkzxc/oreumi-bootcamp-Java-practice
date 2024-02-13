@@ -20,8 +20,8 @@ public class Ui {
     private static final String FIND_REQUEST_MESSAGE = "검색할 이름을 입력하세요: ";
 
     public static Mode inputMode() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            Mode chosenMode = chooseMode(scanner);
+        try  {
+            Mode chosenMode = chooseMode();
             chosenMode.isNone(chosenMode);
 
             return chosenMode;
@@ -32,7 +32,8 @@ public class Ui {
         }
     }
 
-    public static Mode chooseMode(Scanner scanner) {
+    public static Mode chooseMode() {
+        Scanner scanner = new Scanner(System.in);
         System.out.print(MODE_REQUEST_MESSAGE);
         int modeNumber;
 
@@ -101,8 +102,8 @@ public class Ui {
             for(Contact contact : contactsWithName) {
                 printer(contact);
             }
-        } catch (NullPointerException e) {
-            System.out.println("연락처를 찾을 수 없습니다.");
+        } catch (IllegalArgumentException e) {
+            System.out.println(e.getMessage());
         }
     }
 
