@@ -15,7 +15,7 @@ public class Contact {
     }
 
     private void checkRegex(String phoneNumber) {
-        Pattern pattern = Pattern.compile("\\d{3}-\\d{4}-\\d{4}");
+        Pattern pattern = Pattern.compile("^010-\\d{4}-\\d{4}");
         if(!pattern.matcher(phoneNumber).find()) {
             throw new IllegalArgumentException("번호 형식에 맞게 다시 입력해 주세요");
         }
