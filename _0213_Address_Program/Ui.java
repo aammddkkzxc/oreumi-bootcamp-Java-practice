@@ -102,17 +102,6 @@ public class Ui {
     }
 
     private static void printer(Contact contact) {
-        StringBuilder stringBuilder = new StringBuilder();
-
-        stringBuilder.append("이름 : ").append(contact.getName()).append(", ").append("전화번호 : ")
-                .append(contact.getPhoneNumber()).append(", ");
-        if (contact instanceof BusinessContact businessContact) {
-            stringBuilder.append("회사명 : ").append(businessContact.getCompany());
-        }
-        if (contact instanceof PersonalContact personalContact) {
-            stringBuilder.append("관계 : ").append(personalContact.getRelationship());
-        }
-
-        System.out.println(stringBuilder);
+        System.out.println(contact);
     }
 }

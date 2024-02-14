@@ -20,6 +20,11 @@ public class Contact {
         return Objects.equals(this.name, name);
     }
 
+    @Override
+    public String toString() {
+        return String.format("이름 : %s, 전화번호 : %s, ", name, phoneNumber);
+    }
+
     public String getName() {
         return name;
     }
