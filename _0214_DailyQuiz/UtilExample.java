@@ -7,7 +7,7 @@ public class UtilExample {
         System.out.println(age);
 
         ChildPair<String, Integer> childPair = new ChildPair<>("이길동", 20);
-        Integer childAge = Util.getValue(pair, "이길동");
+        Integer childAge = Util.getValue(childPair, "삼길동");
         System.out.println(childAge);
 
         // OtherPair는 Pair를 상속하지 않으므로 예외가 발생해야합니다.
