@@ -4,7 +4,11 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Main {
-    public boolean sol() {
+    public static void main(String[] args) {
+        boolean sol = sol();
+        System.out.println(sol);
+    }
+    public static boolean sol() {
         Scanner scanner = new Scanner(System.in);
         String stringInput = scanner.nextLine();
         Stack<Character> stack = new Stack<>();
