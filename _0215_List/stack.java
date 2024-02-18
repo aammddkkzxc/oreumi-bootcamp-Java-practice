@@ -1,20 +1,21 @@
 package _0215_List;
 
+import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.Stack;
 
 public class stack {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<>();
         String value = scanner.nextLine();
         int answer = 0;
 
-        for(int i = 0; i < value.length(); i++) {
-            if(value.charAt(i) == '(') {
+        for (int i = 0; i < value.length(); i++) {
+            if (value.charAt(i) == '(') {
                 stack.push('(');
             }
-            if(value.charAt(i) == ')') {
+            if (value.charAt(i) == ')') {
                 stack.pop();
                 if (value.charAt(i - 1) == '(') {
                     answer += stack.size();
@@ -24,6 +25,7 @@ public class stack {
                 }
             }
         }
+        LinkedList linkedList = new LinkedList<>();
 
         System.out.println(answer);
     }
