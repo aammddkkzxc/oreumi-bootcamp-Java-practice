@@ -1,11 +1,15 @@
 package _0218;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
-
     public static void main(String[] args) {
-        Interface2 interface2 = (x) -> System.out.println("x: " + x);
+        List list = new ArrayList<>();
 
-        interface2.printVal(10);
-        interface2.printVal(20);
+        list.add(1);
+        list.add("안녕");
+
+        Integer.parseInt(list.get(1).toString());
     }
 }
