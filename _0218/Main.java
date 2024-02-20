@@ -1,15 +1,21 @@
-package _0218;
-
-import java.util.ArrayList;
-import java.util.List;
-
-public class Main {
-    public static void main(String[] args) {
-        List list = new ArrayList<>();
-
-        list.add(1);
-        list.add("안녕");
-
-        Integer.parseInt(list.get(1).toString());
-    }
-}
+//package _0218;
+//
+//import java.util.ArrayList;
+//import java.util.List;
+//import java.util.function.IntSupplier;
+//
+//public class LambdaExample {
+////    public static int method(int x, int y) {
+//        IntSupplier supplier = () -> {
+////            x *= 10;
+////            int result = x + y;
+////            return result;
+////        };
+////        int result = supplier.getAsInt();
+////        return result;
+////    }
+////
+////    public static void main(String[] args) {
+////        System.out.println(method(3, 5));
+////    }
+//}
