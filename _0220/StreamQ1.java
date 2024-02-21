@@ -9,9 +9,11 @@ public class StreamQ1 {
     public static void main(String[] args) {
         List<Integer> list = Arrays.asList(1, 1, 2, 2, 2, 3, 4, 5, 5);
         list.stream().distinct().forEach(System.out::println);
+        System.out.println(list);
 
 
         List<String> stringList = list.stream().distinct().map(Objects::toString).collect(Collectors.toList());
         System.out.println(stringList);
+        System.out.println(list);
     }
 }

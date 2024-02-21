@@ -24,6 +24,7 @@ public class AscendingSort {
                 .toArray();
     }
 
+
     public static void main(String[] args) {
         AscendingSort ascendingSort = new AscendingSort();
         Scanner scanner = new Scanner(System.in);
@@ -45,5 +46,12 @@ public class AscendingSort {
         for (int x : ascendingSort.solution(array, array2)) {
             System.out.print(x + " ");
         }
+//        List<Integer> list = new ArrayList<>();
+//
+//        OptionalDouble average = list.stream()
+//                .mapToInt(Integer::intValue)
+//                .average();
+//
+//        average.ifPresent(System.out::println);
     }
 }

@@ -9,14 +9,16 @@ import java.util.stream.Collectors;
 
 public class PrintMoreBigNumber {
     public List<Integer> solution(int numberInput, int[] array) {
-//        List<Integer> answer = new ArrayList<>();
+        List<Integer> answer = new ArrayList<>();
 
 //        for(int number : array) {
 //            if (number >= numberInput) {
 //                answer.add(number);
 //            }
 //        }
-        List<Integer> answer = Arrays.stream(array).filter(n -> n >= numberInput).boxed().collect(Collectors.toList());;
+//
+//        List<Integer> answer = Arrays.stream(array).filter(n -> n >= numberInput).boxed().collect(Collectors.toList());
+
 
 
         return answer;
